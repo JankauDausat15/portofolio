@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Navbar from './components/Navbar'
-import profileImage from './assets/profile.png'
+import profileImage from './assets/Profile.png'
 import ProjectCard from './components/ProjectCard'
 
 function App() {
