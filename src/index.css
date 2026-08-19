@@ -1,0 +1,2299 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+body.dark {
+  background: #111;
+  color: #f5f5f5;
+}
+
+main {
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav {
+  height: 70px;
+  padding: 0 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(245, 245, 245, 0.9);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid #ddd;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+nav h2 {
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  position: relative;
+
+  color: #111;
+  text-decoration: none;
+
+  font-size: 11px;
+  letter-spacing: 0.5px;
+
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background: currentColor;
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+
+/* =====================================================
+   DARK MODE BUTTON
+===================================================== */
+
+.theme-button {
+  border: none;
+  background: transparent;
+
+  font-size: 15px;
+
+  cursor: pointer;
+  padding: 5px;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.theme-button:hover {
+  transform:
+    rotate(20deg)
+    scale(1.1);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  min-height: calc(100vh - 70px);
+
+  padding: 70px 7vw;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr 0.95fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  position: relative;
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+  animation:
+    heroEnter
+    0.9s
+    ease
+    both;
+}
+
+@keyframes heroEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.hero-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.hero-status span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #111;
+
+  animation:
+    pulse
+    2s
+    infinite;
+}
+
+@keyframes pulse {
+
+  0% {
+    box-shadow:
+      0 0 0 0
+      rgba(17, 17, 17, 0.3);
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 8px
+      rgba(17, 17, 17, 0);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0
+      rgba(17, 17, 17, 0);
+  }
+
+}
+
+
+/* =====================================================
+   EYEBROW
+===================================================== */
+
+.eyebrow {
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.hero h1 {
+  font-size:
+    clamp(55px, 6.5vw, 100px);
+
+  line-height: 0.88;
+
+  letter-spacing: -5px;
+
+  margin-bottom: 35px;
+}
+
+.hero h1 span {
+  font-family: Georgia, serif;
+
+  font-style: italic;
+
+  font-weight: 400;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.hero-description {
+  max-width: 440px;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: #555;
+
+  margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 60px;
+}
+
+.hero-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 20px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.hero-button:hover {
+  transform:
+    translateY(-3px);
+}
+
+.hero-button.primary {
+  background: #111;
+
+  color: #fff;
+
+  border:
+    1px solid #111;
+}
+
+.hero-button.primary:hover {
+  background: transparent;
+
+  color: #111;
+}
+
+.hero-button.secondary {
+  background: transparent;
+
+  color: #111;
+
+  border:
+    1px solid #ccc;
+}
+
+.hero-button.secondary:hover {
+  border-color: #111;
+}
+
+
+/* =====================================================
+   HERO META
+===================================================== */
+
+.hero-meta {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  max-width: 660px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid #ddd;
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+
+  color: #777;
+}
+
+
+/* =====================================================
+   HERO IMAGE AREA
+===================================================== */
+
+.hero-image {
+  width: 100%;
+
+  min-height: 580px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  animation:
+    heroPhotoEnter
+    1s
+    ease
+    0.15s
+    both;
+}
+
+@keyframes heroPhotoEnter {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* =====================================================
+   MAIN PHOTO FRAME
+===================================================== */
+
+.hero-image-frame {
+  width:
+    min(100%, 430px);
+
+  position: relative;
+
+  padding: 15px;
+
+  background: #f5f5f5;
+
+  border:
+    1px solid #ccc;
+
+  z-index: 1;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.3s ease;
+}
+
+.hero-image-frame:hover {
+  transform:
+    translateY(-4px);
+}
+
+
+/* =====================================================
+   BACK FRAME
+===================================================== */
+
+.hero-image-frame::before {
+  content: "";
+
+  position: absolute;
+
+  top: -12px;
+  right: -12px;
+
+  width: 100%;
+  height: 100%;
+
+  border:
+    1px solid #ddd;
+
+  background: transparent;
+
+  z-index: -1;
+}
+
+
+/* =====================================================
+   PHOTO CONTAINER
+===================================================== */
+
+.image-placeholder {
+  width: 100%;
+
+  height: 520px;
+
+  background: #ddd;
+
+  overflow: hidden;
+
+  position: relative;
+
+  display: block;
+}
+
+
+/* =====================================================
+   PROFILE PHOTO
+===================================================== */
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  transition:
+    transform 0.6s ease;
+}
+
+
+/* PHOTO ZOOM */
+
+.hero-image-frame:hover .profile-image {
+  transform:
+    scale(1.025);
+}
+
+
+/* =====================================================
+   PHOTO LABEL
+===================================================== */
+
+.image-label {
+  width: 100%;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  padding-top: 12px;
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+
+  color: #777;
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.projects {
+  padding:
+    120px 7vw;
+
+  border-top:
+    1px solid #ddd;
+}
+
+.section-heading {
+  margin-bottom:
+    60px;
+}
+
+.section-heading p {
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    2px;
+
+  margin-bottom:
+    12px;
+}
+
+.section-heading h2 {
+  font-family:
+    Georgia, serif;
+
+  font-size:
+    55px;
+
+  font-weight:
+    500;
+}
+
+
+/* =====================================================
+   PROJECT GRID
+===================================================== */
+
+.project-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap:
+    20px;
+}
+
+
+/* =====================================================
+   PROJECT CARD
+===================================================== */
+
+.project-card {
+  min-height:
+    350px;
+
+  padding:
+    25px;
+
+  background:
+    #fff;
+
+  border:
+    1px solid #ddd;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    space-between;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 20px 40px
+    rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   PROJECT TOP
+===================================================== */
+
+.project-top {
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+}
+
+.project-number {
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+}
+
+
+/* =====================================================
+   PROJECT INFO
+===================================================== */
+
+.project-info {
+  margin-top:
+    auto;
+}
+
+.project-category {
+  font-size:
+    9px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    1px;
+
+  color:
+    #777;
+
+  margin-bottom:
+    12px;
+}
+
+.project-card h3 {
+  font-size:
+    28px;
+
+  margin-bottom:
+    12px;
+}
+
+
+/* =====================================================
+   PROJECT DESCRIPTION
+===================================================== */
+
+.project-description {
+  font-size:
+    12px;
+
+  line-height:
+    1.7;
+
+  color:
+    #555;
+
+  margin-bottom:
+    25px;
+}
+
+
+/* =====================================================
+   PROJECT BUTTON
+===================================================== */
+
+.project-button {
+  width:
+    fit-content;
+
+  padding:
+    0;
+
+  margin-top:
+    25px;
+
+  background:
+    transparent;
+
+  border:
+    none;
+
+  border-bottom:
+    1px solid #111;
+
+  padding-bottom:
+    5px;
+
+  color:
+    #111;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1.2px;
+
+  cursor:
+    pointer;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-button:hover {
+  opacity:
+    0.5;
+
+  transform:
+    translateX(5px);
+}
+
+
+/* =====================================================
+   PROJECT OVERLAY / MODAL
+===================================================== */
+
+.project-overlay {
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  background:
+    rgba(0, 0, 0, 0.65);
+
+  backdrop-filter:
+    blur(8px);
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    30px;
+
+  z-index:
+    9999;
+
+  animation:
+    overlayEnter
+    0.3s
+    ease
+    both;
+
+  overflow-y:
+    auto;
+}
+
+@keyframes overlayEnter {
+
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+
+}
+
+
+/* =====================================================
+   PROJECT DETAIL
+===================================================== */
+
+.project-detail {
+  width:
+    min(100%, 700px);
+
+  max-height:
+    90vh;
+
+  overflow-y:
+    auto;
+
+  position:
+    relative;
+
+  background:
+    #f5f5f5;
+
+  color:
+    #111;
+
+  border:
+    1px solid #ccc;
+
+  padding:
+    50px;
+
+  box-shadow:
+    0 30px 80px
+    rgba(0, 0, 0, 0.25);
+
+  animation:
+    detailEnter
+    0.4s
+    ease
+    both;
+}
+
+@keyframes detailEnter {
+
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateY(30px)
+      scale(0.97);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close-button {
+  position:
+    absolute;
+
+  top:
+    20px;
+
+  right:
+    20px;
+
+  width:
+    35px;
+
+  height:
+    35px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid #ccc;
+
+  background:
+    transparent;
+
+  color:
+    #111;
+
+  font-size:
+    13px;
+
+  cursor:
+    pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.close-button:hover {
+  background:
+    #111;
+
+  color:
+    #fff;
+
+  border-color:
+    #111;
+
+  transform:
+    rotate(90deg);
+}
+
+
+/* =====================================================
+   PROJECT DETAIL NUMBER
+===================================================== */
+
+.project-detail .project-number {
+  margin-bottom:
+    25px;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    1px;
+
+  color:
+    #777;
+}
+
+
+/* =====================================================
+   PROJECT DETAIL TITLE
+===================================================== */
+
+.project-detail h2 {
+  font-family:
+    Georgia, serif;
+
+  font-size:
+    clamp(40px, 6vw, 65px);
+
+  line-height:
+    0.95;
+
+  font-weight:
+    500;
+
+  margin-bottom:
+    18px;
+
+  letter-spacing:
+    -2px;
+}
+
+
+/* =====================================================
+   PROJECT DETAIL CATEGORY
+===================================================== */
+
+.project-detail .project-category {
+  margin-bottom:
+    30px;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    1.5px;
+}
+
+
+/* =====================================================
+   PROJECT DETAIL DESCRIPTION
+===================================================== */
+
+.project-detail-description {
+  max-width:
+    570px;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.8;
+
+  color:
+    #555;
+
+  padding-bottom:
+    30px;
+
+  border-bottom:
+    1px solid #ddd;
+}
+
+
+/* =====================================================
+   TECH STACK
+===================================================== */
+
+.project-tech {
+  padding:
+    30px 0;
+
+  border-bottom:
+    1px solid #ddd;
+}
+
+.project-tech > p {
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    2px;
+
+  margin-bottom:
+    15px;
+}
+
+.tech-list {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+}
+
+.tech-list span {
+  display:
+    inline-block;
+
+  padding:
+    8px 12px;
+
+  border:
+    1px solid #ccc;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    0.5px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.tech-list span:hover {
+  background:
+    #111;
+
+  color:
+    #fff;
+
+  border-color:
+    #111;
+}
+
+
+/* =====================================================
+   PROJECT LINKS
+===================================================== */
+
+.project-links {
+  display:
+    flex;
+
+  gap:
+    20px;
+
+  flex-wrap:
+    wrap;
+
+  margin-top:
+    30px;
+}
+
+.project-links a {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    13px 20px;
+
+  border:
+    1px solid #111;
+
+  color:
+    #111;
+
+  background:
+    transparent;
+
+  text-decoration:
+    none;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1.2px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-links a:hover {
+  background:
+    #111;
+
+  color:
+    #fff;
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+  padding:
+    120px 7vw;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    100px;
+
+  border-top:
+    1px solid #ddd;
+}
+
+.about-heading h2 {
+  font-family:
+    Georgia, serif;
+
+  font-size:
+    55px;
+
+  line-height:
+    1;
+
+  font-weight:
+    500;
+}
+
+.about-content {
+  max-width:
+    450px;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.8;
+
+  color:
+    #555;
+}
+
+.about-content p {
+  margin-bottom:
+    25px;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+  margin-top:
+    30px;
+}
+
+.skills span {
+  border:
+    1px solid #ccc;
+
+  padding:
+    8px 12px;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    0.5px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.skills span:hover {
+  background:
+    #111;
+
+  color:
+    #fff;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+  min-height:
+    550px;
+
+  padding:
+    120px 7vw;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  text-align:
+    center;
+
+  border-top:
+    1px solid #ddd;
+}
+
+.contact h2 {
+  font-family:
+    Georgia, serif;
+
+  font-size:
+    clamp(50px, 7vw, 90px);
+
+  line-height:
+    0.95;
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    -4px;
+
+  margin:
+    20px 0 45px;
+}
+
+.contact h2 span {
+  font-style:
+    italic;
+}
+
+.contact-button {
+  display:
+    inline-block;
+
+  padding:
+    15px 25px;
+
+  border:
+    1px solid #111;
+
+  color:
+    #111;
+
+  text-decoration:
+    none;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    1.5px;
+
+  transition:
+    all 0.3s ease;
+}
+
+.contact-button:hover {
+  background:
+    #111;
+
+  color:
+    #fff;
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+  padding:
+    40px 7vw;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap:
+    20px;
+
+  border-top:
+    1px solid #ddd;
+
+  font-size:
+    10px;
+}
+
+.footer strong {
+  font-size:
+    15px;
+
+  letter-spacing:
+    2px;
+}
+
+.footer p {
+  margin-top:
+    8px;
+
+  font-size:
+    10px;
+
+  color:
+    #777;
+}
+
+.footer-links {
+  display:
+    flex;
+
+  gap:
+    25px;
+
+  align-items:
+    center;
+}
+
+.footer-links a {
+  color:
+    #111;
+
+  text-decoration:
+    none;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    1px;
+}
+
+.footer-links a:hover {
+  opacity:
+    0.5;
+}
+
+.copyright {
+  grid-column:
+    1 / -1;
+
+  padding-top:
+    20px;
+
+  border-top:
+    1px solid #eee;
+}
+
+
+/* =====================================================
+   DARK MODE - NAV
+===================================================== */
+
+body.dark nav {
+  background:
+    rgba(17, 17, 17, 0.9);
+
+  border-color:
+    #333;
+}
+
+body.dark nav h2 {
+  color:
+    #f5f5f5;
+}
+
+body.dark .nav-links a {
+  color:
+    #f5f5f5;
+}
+
+body.dark .theme-button {
+  color:
+    #f5f5f5;
+}
+
+
+/* =====================================================
+   DARK MODE - HERO
+===================================================== */
+
+body.dark .hero-description {
+  color:
+    #aaa;
+}
+
+body.dark .hero-status span {
+  background:
+    #f5f5f5;
+}
+
+body.dark .hero-meta {
+  border-color:
+    #333;
+
+  color:
+    #888;
+}
+
+
+/* =====================================================
+   DARK MODE - BUTTONS
+===================================================== */
+
+body.dark .hero-button.primary {
+  background:
+    #f5f5f5;
+
+  color:
+    #111;
+
+  border-color:
+    #f5f5f5;
+}
+
+body.dark .hero-button.primary:hover {
+  background:
+    transparent;
+
+  color:
+    #f5f5f5;
+}
+
+body.dark .hero-button.secondary {
+  color:
+    #f5f5f5;
+
+  border-color:
+    #444;
+}
+
+body.dark .hero-button.secondary:hover {
+  border-color:
+    #f5f5f5;
+}
+
+
+/* =====================================================
+   DARK MODE - IMAGE
+===================================================== */
+
+body.dark .hero-image-frame {
+  background:
+    #111;
+
+  border-color:
+    #444;
+}
+
+body.dark .hero-image-frame::before {
+  border-color:
+    #333;
+}
+
+body.dark .image-placeholder {
+  background:
+    #1b1b1b;
+}
+
+body.dark .image-label {
+  color:
+    #888;
+}
+
+
+/* =====================================================
+   DARK MODE - PROJECTS
+===================================================== */
+
+body.dark .projects {
+  border-color:
+    #333;
+}
+
+body.dark .project-card {
+  background:
+    #1b1b1b;
+
+  border-color:
+    #333;
+}
+
+body.dark .project-category {
+  color:
+    #aaa;
+}
+
+body.dark .project-description {
+  color:
+    #aaa;
+}
+
+body.dark .project-card:hover {
+  box-shadow:
+    0 20px 40px
+    rgba(0, 0, 0, 0.3);
+}
+
+
+/* =====================================================
+   DARK MODE - PROJECT BUTTON
+===================================================== */
+
+body.dark .project-button {
+  color:
+    #f5f5f5;
+
+  border-color:
+    #f5f5f5;
+}
+
+body.dark .project-button:hover {
+  opacity:
+    0.6;
+}
+
+
+/* =====================================================
+   DARK MODE - PROJECT MODAL
+===================================================== */
+
+body.dark .project-overlay {
+  background:
+    rgba(0, 0, 0, 0.8);
+}
+
+body.dark .project-detail {
+  background:
+    #171717;
+
+  color:
+    #f5f5f5;
+
+  border-color:
+    #333;
+}
+
+body.dark .close-button {
+  color:
+    #f5f5f5;
+
+  border-color:
+    #444;
+}
+
+body.dark .close-button:hover {
+  background:
+    #f5f5f5;
+
+  color:
+    #111;
+
+  border-color:
+    #f5f5f5;
+}
+
+body.dark .project-detail .project-number {
+  color:
+    #888;
+}
+
+body.dark .project-detail .project-category {
+  color:
+    #aaa;
+}
+
+body.dark .project-detail-description {
+  color:
+    #aaa;
+
+  border-color:
+    #333;
+}
+
+body.dark .project-tech {
+  border-color:
+    #333;
+}
+
+body.dark .tech-list span {
+  border-color:
+    #444;
+}
+
+body.dark .tech-list span:hover {
+  background:
+    #f5f5f5;
+
+  color:
+    #111;
+
+  border-color:
+    #f5f5f5;
+}
+
+body.dark .project-links a {
+  color:
+    #f5f5f5;
+
+  border-color:
+    #f5f5f5;
+}
+
+body.dark .project-links a:hover {
+  background:
+    #f5f5f5;
+
+  color:
+    #111;
+}
+
+
+/* =====================================================
+   DARK MODE - ABOUT
+===================================================== */
+
+body.dark .about {
+  border-color:
+    #333;
+}
+
+body.dark .about-content {
+  color:
+    #aaa;
+}
+
+body.dark .skills span {
+  border-color:
+    #444;
+}
+
+body.dark .skills span:hover {
+  background:
+    #f5f5f5;
+
+  color:
+    #111;
+}
+
+
+/* =====================================================
+   DARK MODE - CONTACT
+===================================================== */
+
+body.dark .contact {
+  border-color:
+    #333;
+}
+
+body.dark .contact-button {
+  color:
+    #f5f5f5;
+
+  border-color:
+    #f5f5f5;
+}
+
+body.dark .contact-button:hover {
+  background:
+    #f5f5f5;
+
+  color:
+    #111;
+}
+
+
+/* =====================================================
+   DARK MODE - FOOTER
+===================================================== */
+
+body.dark .footer {
+  border-color:
+    #333;
+}
+
+body.dark .footer-links a {
+  color:
+    #f5f5f5;
+}
+
+body.dark .footer p {
+  color:
+    #aaa;
+}
+
+body.dark .copyright {
+  border-color:
+    #333;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+
+  nav {
+    height:
+      65px;
+
+    padding:
+      0 20px;
+  }
+
+  .nav-links {
+    gap:
+      12px;
+  }
+
+  .nav-links a {
+    font-size:
+      9px;
+  }
+
+  .theme-button {
+    font-size:
+      14px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height:
+      auto;
+
+    padding:
+      60px 20px 80px;
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      45px;
+  }
+
+  .hero-image {
+    order:
+      -1;
+
+    min-height:
+      auto;
+
+    width:
+      100%;
+  }
+
+
+  /* FRAME */
+
+  .hero-image-frame {
+    width:
+      min(90%, 380px);
+
+    padding:
+      12px;
+  }
+
+  .hero-image-frame::before {
+    top:
+      -9px;
+
+    right:
+      -9px;
+  }
+
+
+  /* PHOTO */
+
+  .image-placeholder {
+    height:
+      460px;
+  }
+
+  .profile-image {
+    width:
+      100%;
+
+    height:
+      100%;
+
+    object-fit:
+      cover;
+
+    object-position:
+      center center;
+  }
+
+
+  /* TITLE */
+
+  .hero h1 {
+    font-size:
+      58px;
+
+    letter-spacing:
+      -4px;
+  }
+
+  .hero-description {
+    font-size:
+      13px;
+  }
+
+
+  /* BUTTONS */
+
+  .hero-buttons {
+    margin-bottom:
+      40px;
+  }
+
+
+  /* META */
+
+  .hero-meta {
+    flex-direction:
+      column;
+
+    gap:
+      10px;
+  }
+
+
+  /* PROJECTS */
+
+  .projects {
+    padding:
+      80px 20px;
+  }
+
+  .section-heading h2 {
+    font-size:
+      45px;
+  }
+
+  .project-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .project-card {
+    min-height:
+      300px;
+  }
+
+  .project-card h3 {
+    font-size:
+      25px;
+  }
+
+  .project-description {
+    font-size:
+      12px;
+  }
+
+  .project-button {
+    font-size:
+      9px;
+  }
+
+
+  /* PROJECT MODAL */
+
+  .project-overlay {
+    padding:
+      15px;
+
+    align-items:
+      flex-start;
+  }
+
+  .project-detail {
+    width:
+      100%;
+
+    max-height:
+      92vh;
+
+    padding:
+      35px 25px;
+  }
+
+  .close-button {
+    top:
+      15px;
+
+    right:
+      15px;
+  }
+
+  .project-detail h2 {
+    font-size:
+      42px;
+
+    padding-right:
+      35px;
+  }
+
+  .project-detail-description {
+    font-size:
+      13px;
+  }
+
+  .project-links {
+    flex-direction:
+      column;
+
+    gap:
+      10px;
+  }
+
+  .project-links a {
+    width:
+      100%;
+  }
+
+
+  /* ABOUT */
+
+  .about {
+    padding:
+      80px 20px;
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      40px;
+  }
+
+  .about-heading h2 {
+    font-size:
+      45px;
+  }
+
+
+  /* CONTACT */
+
+  .contact {
+    padding:
+      90px 20px;
+  }
+
+  .contact h2 {
+    font-size:
+      50px;
+
+    letter-spacing:
+      -2px;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    padding:
+      35px 20px;
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      25px;
+  }
+
+  .footer-links {
+    justify-content:
+      flex-start;
+  }
+
+  .copyright {
+    grid-column:
+      auto;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  nav {
+    padding:
+      0 15px;
+  }
+
+  nav h2 {
+    font-size:
+      14px;
+  }
+
+  .nav-links {
+    gap:
+      8px;
+  }
+
+  .nav-links a {
+    font-size:
+      8px;
+  }
+
+  .theme-button {
+    font-size:
+      13px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    padding:
+      45px 15px 70px;
+
+    gap:
+      35px;
+  }
+
+
+  /* FRAME */
+
+  .hero-image-frame {
+    width:
+      92%;
+
+    padding:
+      10px;
+  }
+
+  .hero-image-frame::before {
+    top:
+      -7px;
+
+    right:
+      -7px;
+  }
+
+
+  /* PHOTO */
+
+  .image-placeholder {
+    height:
+      400px;
+  }
+
+
+  /* TITLE */
+
+  .hero h1 {
+    font-size:
+      48px;
+
+    letter-spacing:
+      -3px;
+  }
+
+
+  /* BUTTONS */
+
+  .hero-buttons {
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+  }
+
+  .hero-button {
+    width:
+      100%;
+  }
+
+
+  /* META */
+
+  .hero-meta {
+    font-size:
+      7px;
+  }
+
+
+  /* PROJECTS */
+
+  .section-heading h2 {
+    font-size:
+      40px;
+  }
+
+  .project-card {
+    min-height:
+      290px;
+  }
+
+
+  /* PROJECT MODAL */
+
+  .project-overlay {
+    padding:
+      10px;
+  }
+
+  .project-detail {
+    padding:
+      30px 20px;
+  }
+
+  .project-detail h2 {
+    font-size:
+      38px;
+
+    letter-spacing:
+      -1.5px;
+  }
+
+  .project-detail-description {
+    font-size:
+      12px;
+
+    line-height:
+      1.7;
+  }
+
+  .tech-list span {
+    font-size:
+      8px;
+
+    padding:
+      7px 10px;
+  }
+
+
+  /* ABOUT */
+
+  .about-heading h2 {
+    font-size:
+      40px;
+  }
+
+
+  /* CONTACT */
+
+  .contact h2 {
+    font-size:
+      45px;
+  }
+
+}
+
